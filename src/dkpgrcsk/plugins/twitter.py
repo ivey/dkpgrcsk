@@ -148,9 +148,11 @@ class TwitterPlugin(DPlugin):
                         type(result) == urllib2.URLError:
                         self.bot.connection.privmsg(reply_to, "Fail whale")
                         return
+                    text = result['text']
+                    text = text.replace('\n', ' ')
                     try:
                         new_text = u'<%s> %s' % (result['user']['screen_name'],
-                            result['text'])
+                            text)
                     except Exception, e:
                         print 'Error received: %s because of %s' % (e, result)
                     new_text = new_text.encode('utf-8')
