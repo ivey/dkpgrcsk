@@ -9,6 +9,8 @@ user=jfkdheueosicdkfl
 debug=True
 load_plugins=friend twitter tumblr markov repost
 banned_urls=http://foxnews.com http://dailykos.com
+# set to true if you don't want to leak users to plugins:
+anonymous_channel=False
 
 [twitter]
 consumer_key=xxxxxx

@@ -256,6 +256,9 @@ def main():
     if 'banned_urls' not in settings:
         settings['banned_urls'] = []
 
+    if 'anonymous_channel' not in settings:
+        settings['anonymous_channel'] = False
+
     if 'load_plugins' in settings:
         settings['load_plugins'] = settings['load_plugins'].split(' ')
     else:
