@@ -128,7 +128,9 @@ class TwitterPlugin(DPlugin):
             self.bot.connection.privmsg(reply_to,
                 "Tweet too long. Trim off %d characters." % (len(message) - 140))
             return
-        self.bot.set_callback(self.twitter.UpdateStatus, lambda x: None,
+        def reply(result):
+            self.bot.connection.privmsg(reply_to,"Tweet posted.")
+        self.bot.set_callback(self.twitter.UpdateStatus, reply,
             args=[message])
 
     def handle_url(self, message, reply_to, url, sender, times=0):
