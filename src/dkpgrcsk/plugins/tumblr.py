@@ -84,7 +84,7 @@ class TumblrPlugin(DPlugin):
         print "Attempting to post %s for the #%i time" % (url, times)
         nick = nm_to_n(sender)
         api = Api(self.tumblog, self.email, self.password)
-        if self.bot.anonymous_channel:
+        if self.bot.settings['anonymous_channel']:
             caption = '%s\nvia %s' % (filtered_msg, nick)
         else:
             caption = '' # don't leak usernames or what is said
